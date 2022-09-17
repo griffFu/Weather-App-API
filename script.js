@@ -11,15 +11,17 @@
 
 
 //variables we are manipulating
-let temp = document.getElementById('temp');
+let Atemp = document.getElementById('temp');
 let forecast = document.getElementById('forecast');
 let icon = document.getElementById('icon');
 let feelsLike = document.getElementById('feelsLike');
 
 
 
-let response = document.getElementById("search")
+let response = document.getElementById("search");
 
+
+// event listener thats waiting for user to click enter, must be in input box though
 response.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
         getTemp();
@@ -29,7 +31,7 @@ response.addEventListener("keydown", function (e) {
 
 
 
-
+// function that runs an API when you click enter
 async function getTemp(){
     let userInput = document.getElementById("search").value;
     // run the API
@@ -39,14 +41,14 @@ async function getTemp(){
     //setting the raw ouptput to variables and fixing input
     let tempKel = weatherData.main.temp;
     let tempKelFeels =  weatherData.main.feels_like;
-    forecast.innerHTML = weatherData['weather'][0]['main'];
-    icon.innerHTML = weatherData.main.temp;
+    let forecastForIcon = weatherData['weather'][0]['main'];
     
-    temp.innerHTML = kelvenToFahr(tempKel);
-    feelsLike.innerHTML = kelvenToFahr(tempKelFeels);
-   
-
-
+    
+    //populating the HTML
+    forecast.innerHTML = forecastForIcon;
+    Atemp.innerHTML = kelvenToFahr(tempKel);
+    feelsLike.innerHTML += kelvenToFahr(tempKelFeels);
+    findIcon(forecastForIcon);
 }
 
 
@@ -55,13 +57,18 @@ function kelvenToFahr (enter){
     //(0K − 273.15) × 9/5 + 32 
     let fahr = Math.round((Kelvin - 273.15) * (9/5) + 32) + "\xB0";
     return fahr;
-
-
-
-
 }
 
 
 
 
+function findIcon(input){
+    //forecast in text
+    let givenForecast = input;
 
+    let img = document.createElement("img");
+    img.src = "icons/Clear.png"
+    icon.appendChild(img);
+    // we need to match the icon to the given forecast and return the link for this
+    
+}
