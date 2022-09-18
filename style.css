@@ -41,8 +41,6 @@ body{
 }
 
 .popUp{
-    min-height: 300px;
-    min-width: 500px;
     display: grid;
     grid-template-rows: 1fr 1fr 3fr auto;
     padding: 20px 30px 20px 20px;
@@ -64,10 +62,9 @@ body{
 }
 
 #forecast{
-    display: flex;
-    align-items: flex-end;
     grid-row:  1/ 2;
     grid-column: 1 / 2;
+    font-size: 2rem;
 }
 
 #icon {
@@ -87,7 +84,7 @@ body{
     grid-column: 2 / 3;
 }
 
-#feels-container, #temp-container{
+#feels-container, #temp-container, #humidity-container{
     display: flex;
     flex-direction: column;
     justify-content: center;

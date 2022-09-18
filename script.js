@@ -13,7 +13,7 @@
 //variables we are manipulating
 let Atemp = document.getElementById('temp');
 let forecast = document.getElementById('forecast');
-let icon = document.getElementById('icon');
+let humidity = document.getElementById('humidity');
 let feelsLike = document.getElementById('feelsLike');
 
 
@@ -41,14 +41,16 @@ async function getTemp(){
     //setting the raw ouptput to variables and fixing input
     let tempKel = weatherData.main.temp;
     let tempKelFeels =  weatherData.main.feels_like;
-    let forecastForIcon = weatherData['weather'][0]['main'];
+    let responseHumidity = weatherData.main.humidity;
+   
     
     
     //populating the HTML
-    forecast.innerHTML = forecastForIcon;
+    forecast.innerHTML = weatherData['weather'][0]['description'];
     Atemp.innerHTML = kelvenToFahr(tempKel);
     feelsLike.innerHTML += kelvenToFahr(tempKelFeels);
-    findIcon(forecastForIcon);
+    humidity.innerHTML = responseHumidity + "%";
+    
 }
 
 
@@ -62,6 +64,15 @@ function kelvenToFahr (enter){
 
 
 
+
+
+
+
+
+
+
+/*
+decided against this, icons were pissing me off
 function findIcon(input){
     //forecast in text
     let givenForecast = input;
@@ -72,3 +83,4 @@ function findIcon(input){
     // we need to match the icon to the given forecast and return the link for this
     
 }
+*/
