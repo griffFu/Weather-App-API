@@ -42,7 +42,8 @@ body{
 
 .popUp{
     display: grid;
-    grid-template-rows: 1fr 1fr 3fr auto;
+    /* grid-template-rows: 1fr 1fr 3fr auto; */
+    grid-template-rows: repeat(auto-fill, minmax(min(20px,100%), 1fr));
     padding: 20px 30px 20px 20px;
     border-radius: 30px;
     min-width: none;
@@ -52,6 +53,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .weather{
@@ -145,6 +147,7 @@ input[type=text] {
 .footer ul{
     display: flex;
     justify-content: space-around;
+    list-style-type: none;
     gap: 10px;
 }
 
@@ -158,4 +161,11 @@ input[type=text] {
     align-items: center;
 }
 
+.social-icon{
+    color:black;
+}
 
+.social-icon:hover{
+    color: var(--davys-grey)
+
+}
