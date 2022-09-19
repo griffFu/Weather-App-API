@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <title>Weather</title>
 </head>
-<body>
+<body onload="renderLondon()">
+    <p id="demo"></p>
     <div class="grid">
         <div class="header">Weather App</div>
         <div class="body">
             <div class="popUp">
                 <div class="header2">Enter a City</div>
                 <div class="input">
-                    <input type="text" name="search" id="search" >
+                    <input type="text" name="search" id="search" placeholder="London">
                 </div>
                 <div class="weather">
                         <div id="forecast"></div>
@@ -34,7 +35,13 @@
                 </div>
             </div>
         </div>
-        <div class="footer">github and info</div>
+        <div class="footer">
+            <ul>
+                <li>github</li>
+                <li>linkedin</li>
+                <li>instagram</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
